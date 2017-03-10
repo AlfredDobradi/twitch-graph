@@ -59,3 +59,7 @@ ORDER BY rel_count DESC
 Docker Hub: http://hub.docker.com  
 Neo4j: http://www.neo4j.com  
 Twitch Developers: http://dev.twitch.tv
+
+### Disclaimer
+
+I'm not a Python guy
