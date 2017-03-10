@@ -1,7 +1,5 @@
 # Twitch-graph
 
-Just a simple parser I wrote to pass time.
-
 ## What does it do?
 
 Parses channel followers from Twitch API, then saves the channel, followers and their relationship (which is currently only :FOLLOW) in Neo4j
