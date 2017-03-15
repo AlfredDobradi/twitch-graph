@@ -1,5 +1,5 @@
 # Twitch-graph
-
+[![](https://img.shields.io/gitter/room/alfreddobradi/twitch-graph.svg)](https://gitter.im/twitch-graph/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 ## What does it do?
 
 Parses channel followers from Twitch API, then saves the channel, followers and their relationship (which is currently only :FOLLOW) in Neo4j
