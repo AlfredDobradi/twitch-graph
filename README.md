@@ -1,5 +1,7 @@
 # Twitch-graph
 
+[![Join the chat at https://gitter.im/twitch-graph/Lobby](https://badges.gitter.im/twitch-graph/Lobby.svg)](https://gitter.im/twitch-graph/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## What does it do?
 
 Parses channel followers from Twitch API, then saves the channel, followers and their relationship (which is currently only :FOLLOW) in Neo4j
