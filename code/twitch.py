@@ -5,7 +5,14 @@ import json
 import pprint
 import os
 
+import userqueue
+
 pp = pprint.PrettyPrinter(indent=4)
+
+q = userqueue.UserQueue("localhost", "6379")
+
+raise SystemExit
+
 
 neo = Graph(user="twitch", password="twitch")
 
