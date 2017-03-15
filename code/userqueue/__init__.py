@@ -32,6 +32,7 @@ class UserQueue:
 				"created_at": time.time(),
 				"parsed_at": None
 			}
+			
 			self.redis.hmset(key, entry)
 			self.redis.sadd("UserQueue", key)
 			self.RefreshQueue()

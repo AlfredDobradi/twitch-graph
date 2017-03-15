@@ -1,27 +1,48 @@
 import sys 
 from py2neo import Graph, Node, Relationship
-import requests
-import json
 import pprint
 import os
 
 import userqueue
+import asktwitch
+
 
 pp = pprint.PrettyPrinter(indent=4)
 
+try:
+	client_id = os.environ["CLIENT_ID"]
+
+except KeyError:
+	print("Usage: CLIENT_ID=<twitch client id> [USER=<user name>] python twitch.py")
+	raise SystemExit
+
 q = userqueue.UserQueue("localhost", "6379")
+t = asktwitch.AskTwitch(client_id)
+
+# workflow
+
+userid = t.GetUserIdByName("barveyhirdman")
+
+userinfo = t.GetUserInfo(userid)
+
+following = t.GetUserFollowing(userid)
+
+pp.pprint(following)
+
+# 1. Get initial user's id or if not supplied check queue
+#	user_to_parse = os.environ["USER"] # naming duh
+
+# 2. Parse user, save data, get followers
+
+# 3. Iterate through followers, loop while there's followers
+
 
 raise SystemExit
 
 
 neo = Graph(user="twitch", password="twitch")
 
-try:
-	client_id = os.environ["CLIENT_ID"]
-	user_to_parse = os.environ["CHANNEL"] # naming duh
-except KeyError:
-	print("Usage: CLIENT_ID=<twitch client id> CHANNEL=<channel name> python twitch.py")
-	raise SystemExit
+
 
 
 headers = {
