@@ -33,9 +33,8 @@ class UserQueue:
 				"parsed_at": None
 			}
 			self.redis.hmset(key, entry)
-
-		self.redis.sadd("UserQueue", key)
-		self.RefreshQueue()
+			self.redis.sadd("UserQueue", key)
+			self.RefreshQueue()
 
 	def MarkParsed(self, id):
 		if id is None:
