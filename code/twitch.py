@@ -13,7 +13,7 @@ try:
 	client_id = os.environ["CLIENT_ID"]
 	user_to_parse = os.environ["CHANNEL"] # naming duh
 except KeyError:
-	print "Usage: CLIENT_ID=<twitch client id> CHANNEL=<channel name> python twitch.py"
+	print("Usage: CLIENT_ID=<twitch client id> CHANNEL=<channel name> python twitch.py")
 	raise SystemExit
 
 
@@ -72,7 +72,7 @@ def getFollowers(channel):
 		if remaining < 0:
 			remaining = 0
 
-		print "\n====\nRemaining: " + str(remaining) + "\n===="
+		print("\n====\nRemaining: " + str(remaining) + "\n====")
 
 		url = "https://api.twitch.tv/kraken/channels/" + channel["twitch_id"] + "/follows?limit=" + str(chunk)
 		if cursor is not None:
@@ -83,7 +83,7 @@ def getFollowers(channel):
 			for record in response["follows"]:
 				user = findOrCreateUser(record["user"])
 				findOrCreateRelation(user, channel)
-				print user["name"] + " FOLLOW " + channel["name"]
+				print(user["name"] + " FOLLOW " + channel["name"])
 		except KeyError:
 			pp.pprint(r.status_code)
 			pp.pprint(r.text)

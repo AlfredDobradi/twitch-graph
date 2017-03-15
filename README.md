@@ -6,7 +6,7 @@ Parses channel followers from Twitch API, then saves the channel, followers and 
 
 ## Usage
 
-To run, you'll need Docker, Docker Compose and Python. (I might create a Docker container for the Python script, but for now it seemed moot)
+To run, you'll need Docker, Docker Compose and Python (^3.0 should be fine). (I might create a Docker container for the Python script, but for now it seemed moot)
 
 Creating and running the container using Docker Compose is pretty simple:
 ```sh
