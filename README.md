@@ -6,26 +6,28 @@ Parses channel followers from Twitch API, then saves the channel, followers and 
 
 ## Usage
 
-To run, you'll need Docker and Python. (I might create a Docker container for the Python script, but for now it seemed moot)
+To run, you'll need Docker, Docker Compose and Python. (I might create a Docker container for the Python script, but for now it seemed moot)
 
-First create the container
-```
-docker build . -t twitchgraph
-```
-
-Fire it up
-```
-docker run -p7474:7474 -p7687:7687 twitchgraph
+Creating and running the container using Docker Compose is pretty simple:
+```sh
+docker-compose up
 ```
 (Neo4j will use the ```./data``` directory to store you know... data.)
 
-When you start Neo4j the first time, check the web interface at ```http://localhost:7474``` and change your password. You'll have to change it in the script in this line:
+However if you can't or don't want to use Compose, you can build and run the container separately:
+```sh
+docker build neo4j/. -t twitch-graph
+docker run -p7474:7474 -p7687:7687 twitch-graph
 ```
+
+
+When you start Neo4j the first time, check the web interface at ```http://localhost:7474``` and change your password. You'll have to change it in the script in this line:
+```python
 neo = Graph(user="twitch", password="twitch")
 ```
 
 Once Neo4j is up and running you can actually run the script:
-```
+```sh
 CLIENT_ID=<twitch client id> CHANNEL=<twitch channel> python code/twitch.py
 ```
 
@@ -50,6 +52,7 @@ ORDER BY rel_count DESC
 
 ## Plans
 
+* Handling channels and users as one entity (as they share the id anyway)
 * Viral discovery (channel -> followers -> their followed channels -> start again)
 * Web based "analytics" using the data
 * Refactor
